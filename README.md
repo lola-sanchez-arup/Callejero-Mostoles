@@ -5,20 +5,14 @@ Repositorio que demuestra cómo construir un grafo urbano a partir de calles, hi
 ## Estructura del proyecto
 ```
 ├── data/
-│ ├── hidrantes.geojson
-│ ├── piscinas.geojson
-│ ├── laguna.geojson
-│ └── otros_datasets/ # futuros datasets (estanques, depósitos de agua, etc.)
+│   ├── calles_mostoles_filtradas.geojson
+│   ├── hidrantes.geojson
+│   └── parquebomberos.geojson
 ├── scripts/
-│ ├── conexion_hidrantes_piscinas.py
-│ ├── conexion_hidrantes_laguna_folium.py
-│ └── (otros scripts futuros)
+│   └── callejero_mostoles.py
 ├── outputs/
-│ ├── grafico_hidrantes_piscinas.png # gráfico resultante de visualización 
-│ ├── hidrantes_piscinas_graph.pt # grafo serializado PyG
-│ ├── category_mappings.json # mapeo de variables categóricas
-│ ├── scaler.pt # objeto scaler para normalización
-│ └── mapa_hidrantes_laguna.html # mapa interactivo Folium
+│   ├── ruta_destino.geojson        # GeoJSON de la ruta generada
+│   └── mostoles_graph_data.pt      # PyG Data con nodos, edges y atributos
 ├── README.md
 └── requirements.txt
 ```
@@ -35,7 +29,7 @@ pip install -r requirements.txt
 
 ## Scripts
 
-### 'scripts/ruta_optima_origen_destino.py'
+### 'scripts/callejero_mostoles.py'
 
 - Carga los archivos de calles (calles_mostoles_filtradas.geojson), hidrantes (hidrantes.geojson) y parque de bomberos (parquebomberos.geojson).
 - Convierte geometrías MultiPolygon o Polygon del parque a puntos representativos.
